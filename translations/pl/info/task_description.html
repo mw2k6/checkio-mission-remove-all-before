@@ -1,0 +1,45 @@
+<p>
+    Nie wszystkie elementy są istotne. Twoim zadaniem jest usunięcie z {% if interpreter.slug == "js-node" %}tablicy (array){% else %}listy (list){% endif %} wszystkich elementów, które znajdują się przed wskazanym elementem granicznym.
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+</p>
+
+<p>
+    Na obrazku widać {% if interpreter.slug == "js-node" %}tablicę (array){% else %}listę (list){% endif %} [1, 2, 3, 4, 5], z której należy usunąć wszystkie elementy znajdujące się przed 3 - czyli 1 i 2.
+</p>
+
+<p>
+	Będziemy mieć do czynienia z dwoma przypadkami brzegowymi: (1) jeśli element graniczny nie istnieje, wtedy {% if interpreter.slug == "js-node" %}tablica{% else %}lista{% endif %} powinna pozostać niezmieniona. (2) jeśli {% if interpreter.slug == "js-node" %}tablica{% else %}lista{% endif %} jest pusta, powinna pozostać pusta.
+</p>
+
+<!-- Explain input and output values -->
+<p>
+    <strong>Wejście: </strong> {% if interpreter.slug == "js-node" %}Array{% else %}List{% endif %} i element graniczny.
+</p>
+
+<p>
+    <strong>Wyjście: </strong> {% if interpreter.slug == "js-node" %}Array{% else %}Iterable (tuple, list, iterator ...){% endif %}.
+</p>
+
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Przykład:</strong>
+    </p>
+
+{% if interpreter.slug == "js-node" %}
+<pre class="brush: javascript">removeAllBefore([1, 2, 3, 4, 5], 3) == [3, 4, 5]
+removeAllBefore([1, 1, 2, 2, 3, 3], 2) == [2, 2, 3, 3]
+removeAllBefore([1, 1, 2, 4, 2, 3, 4], 2) == [2, 4, 2, 3, 4]
+removeAllBefore([1, 1, 5, 6, 7], 2) == [1, 1, 5, 6, 7]
+removeAllBefore([], 0) == []
+</pre>
+{% else %}
+<pre class="brush: python">remove_all_before([1, 2, 3, 4, 5], 3) == [3, 4, 5]
+remove_all_before([1, 1, 2, 2, 3, 3], 2) == [2, 2, 3, 3]
+</pre>
+{% endif %}
+</div>
